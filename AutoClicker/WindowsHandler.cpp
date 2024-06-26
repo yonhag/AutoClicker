@@ -3,6 +3,29 @@
 #include <thread>
 #include <chrono>
 
+void WindowsHandler::SimulateClick(const Settings& settings)
+{
+    // CPS calculation
+    std::chrono::milliseconds delay(1000 / settings._cps);
+
+    if (settings._button == Button::Left)
+    {
+        while (true)
+        {
+            SimulateLeftClick();
+            std::this_thread::sleep_for(delay);
+        }
+    }
+    else
+    {
+        while (true)
+        {
+            SimulateRightClick();
+            std::this_thread::sleep_for(delay);
+        }
+    }
+}
+
 void WindowsHandler::SimulateLeftClick()
 {
     INPUT inputs[2] = { 0 };

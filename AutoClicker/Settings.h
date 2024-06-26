@@ -1,7 +1,9 @@
+enum class Button { Left, Right };
+
 struct Settings
 {
-	Settings(bool button, unsigned int cps) : _button(button), _cps(cps) {}
+	Settings(const Button button, const unsigned int cps) : _button(button), _cps(cps) {}
 
-	bool _button; // Left - true, Right - False
+	Button _button;
 	unsigned int _cps; // Clicks Per Second
 };

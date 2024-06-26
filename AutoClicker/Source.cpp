@@ -7,9 +7,9 @@ int main()
 	std::cout << "Sending Clicks!" << std::endl;
 	std::cout.flush();
 
-	for (int i = 0; i < 500; i++) 
-	{
-		WindowsHandler::SimulateLeftMouseClick();
-	}
+	Settings settings(Button::Right, 1);
+
+	WindowsHandler::SimulateClick(settings);
+
 	return 0;
 }
