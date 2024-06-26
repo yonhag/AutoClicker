@@ -135,11 +135,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="GraphicalHandler.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="WindowsHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Button.h" />
     <ClInclude Include="GraphicalHandler.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="WindowsHandler.h" />
