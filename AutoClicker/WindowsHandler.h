@@ -3,6 +3,8 @@
 class WindowsHandler
 {
 public:
-
-	void SimulateMouseClick();
+	static void SimulateClick();
+private:
+	static void SimulateLeftClick();
+	static void SimulateRightClick();
 };

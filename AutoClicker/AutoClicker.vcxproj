@@ -132,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GraphicalHandler.h" />
+    <ClInclude Include="Settings.h" />
     <ClInclude Include="WindowsHandler.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

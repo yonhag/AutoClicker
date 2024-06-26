@@ -1,11 +1,15 @@
-#include "GraphicalHandler.h"
 #include "WindowsHandler.h"
+#include "GraphicalHandler.h"
+#include <iostream>
 
 int main()
 {
-	WindowsHandler handler;
-	while (true)
+	std::cout << "Sending Clicks!" << std::endl;
+	std::cout.flush();
+
+	for (int i = 0; i < 500; i++) 
 	{
-		handler.SimulateMouseClick();
+		WindowsHandler::SimulateLeftMouseClick();
 	}
+	return 0;
 }
