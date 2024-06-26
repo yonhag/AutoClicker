@@ -4,12 +4,7 @@
 
 int main()
 {
-	std::cout << "Sending Clicks!" << std::endl;
-	std::cout.flush();
-
-	Settings settings(Button::Right, 1);
-
-	WindowsHandler::SimulateClick(settings);
+	GraphicalHandler::OpenWindow();
 
 	return 0;
 }
