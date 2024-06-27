@@ -5,7 +5,7 @@
 int main()
 {
 	GraphicalHandler graph;
-	graph.CreateWindow();
+	graph.HandleWindow();
 
 
 	return 0;

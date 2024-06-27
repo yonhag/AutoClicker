@@ -1,3 +1,4 @@
+#pragma once
 enum class MouseButton { Left, Right };
 
 struct Settings
@@ -6,4 +7,6 @@ struct Settings
 
 	MouseButton _button;
 	unsigned int _cps; // Clicks Per Second
+
+	Settings() = default;
 };

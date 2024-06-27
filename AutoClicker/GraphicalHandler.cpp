@@ -4,15 +4,15 @@
 GraphicalHandler::GraphicalHandler() :
     _window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), WINDOW_TITLE),
     _leftButton("Left", 10, sf::Vector2f(100, 100), this->_font),
-    _rightButton("Right", 10, sf::Vector2f(250, 100), this->_font)
-
+    _rightButton("Right", 10, sf::Vector2f(250, 100), this->_font),
+    _settings(MouseButton::Left, 0)
 {
     _window.setFramerateLimit(60);
     if (!_font.loadFromFile("Carlito/Carlito-Regular.ttf"))
         std::cerr << "Error loading font\n";
 }
 
-void GraphicalHandler::CreateWindow()
+void GraphicalHandler::HandleWindow()
 {
     // Main loop
     while (_window.isOpen())
@@ -31,11 +31,13 @@ void GraphicalHandler::CreateWindow()
                 {
                     _rightButton.Click();
                     _leftButton.Unclick();
+                    _settings._button = MouseButton::Right;
                 }
                 else if (_leftButton.GetGlobalBounds().contains(mousePos.x, mousePos.y))
                 {
                     _leftButton.Click();
                     _rightButton.Unclick();
+                    _settings._button = MouseButton::Left;
                 }
             }
         }

@@ -1,12 +1,13 @@
 #pragma once
 #include "Button.h"
+#include "Settings.h"
 #include <SFML/Graphics.hpp>
 
 class GraphicalHandler
 {
 public:
 	GraphicalHandler();
-	void CreateWindow();
+	[[noreturn]] void HandleWindow();
 
 private:
 	// Consts
@@ -18,4 +19,7 @@ private:
 	Button _leftButton;
 	Button _rightButton;
 	sf::Font _font;
+	
+	// Sharing results
+	Settings _settings;
 };
