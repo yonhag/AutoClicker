@@ -8,8 +8,11 @@ class GraphicalHandler
 public:
 	GraphicalHandler();
 	[[noreturn]] void HandleWindow();
+	Settings GetSettings() const;
 
 private:
+	void HandleMouseEvent();
+
 	// Consts
 	const unsigned int WINDOW_WIDTH = 900;
 	const unsigned int WINDOW_HEIGHT = 600;
@@ -22,4 +25,5 @@ private:
 	
 	// Sharing results
 	Settings _settings;
+	bool _isOpen;
 };
