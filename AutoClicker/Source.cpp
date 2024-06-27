@@ -4,7 +4,9 @@
 
 int main()
 {
-	GraphicalHandler::OpenWindow();
+	GraphicalHandler graph;
+	graph.CreateWindow();
+
 
 	return 0;
 }

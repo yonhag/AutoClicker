@@ -1,51 +1,50 @@
 #include "GraphicalHandler.h"
 #include <iostream>
-#include "Button.h"
 
-void GraphicalHandler::OpenWindow()
+GraphicalHandler::GraphicalHandler() :
+    _window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), WINDOW_TITLE),
+    _leftButton("Left", 10, sf::Vector2f(100, 100), this->_font),
+    _rightButton("Right", 10, sf::Vector2f(250, 100), this->_font)
+
 {
-    sf::RenderWindow window(sf::VideoMode(900, 600), "SFML GUI Example");
-
-    window.setFramerateLimit(60);
-
-    sf::Font font;
-    if (!font.loadFromFile("Carlito/Carlito-Regular.ttf"))
+    _window.setFramerateLimit(60);
+    if (!_font.loadFromFile("Carlito/Carlito-Regular.ttf"))
         std::cerr << "Error loading font\n";
+}
 
-    Button leftButton("Left", 10, sf::Vector2f(100, 100), font);
-    Button rightButton("Right", 10, sf::Vector2f(250, 100), font);
-    
+void GraphicalHandler::CreateWindow()
+{
     // Main loop
-    while (window.isOpen())
+    while (_window.isOpen())
     {
         sf::Event event;
-        while (window.pollEvent(event))
+        while (_window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
-                window.close();
+                _window.close();
 
             // Check for mouse click
             if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left)
             {
-                sf::Vector2i mousePos = sf::Mouse::getPosition(window);
-                if (rightButton.GetGlobalBounds().contains(mousePos.x, mousePos.y))
+                sf::Vector2i mousePos = sf::Mouse::getPosition(_window);
+                if (_rightButton.GetGlobalBounds().contains(mousePos.x, mousePos.y))
                 {
-                    rightButton.Click();
-                    leftButton.Unclick();
+                    _rightButton.Click();
+                    _leftButton.Unclick();
                 }
-                else if (leftButton.GetGlobalBounds().contains(mousePos.x, mousePos.y))
+                else if (_leftButton.GetGlobalBounds().contains(mousePos.x, mousePos.y))
                 {
-                    leftButton.Click();
-                    rightButton.Unclick();
+                    _leftButton.Click();
+                    _rightButton.Unclick();
                 }
             }
         }
 
-        window.clear(sf::Color::White);
+        _window.clear(sf::Color::White);
 
-        leftButton.draw(window);
-        rightButton.draw(window);
+        _leftButton.draw(_window);
+        _rightButton.draw(_window);
 
-        window.display();
+        _window.display();
     }
 }

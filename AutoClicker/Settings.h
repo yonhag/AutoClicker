@@ -1,9 +1,9 @@
-enum class Button { Left, Right };
+enum class MouseButton { Left, Right };
 
 struct Settings
 {
-	Settings(const Button button, const unsigned int cps) : _button(button), _cps(cps) {}
+	Settings(const MouseButton button, const unsigned int cps) : _button(button), _cps(cps) {}
 
-	Button _button;
+	MouseButton _button;
 	unsigned int _cps; // Clicks Per Second
 };
