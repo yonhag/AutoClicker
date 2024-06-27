@@ -5,7 +5,6 @@
 
 void WindowsHandler::SimulateClick(const Settings& settings)
 {
-    // CPS calculation
     std::chrono::milliseconds delay(1000 / settings._cps);
 
     if (settings._button == MouseButton::Left)
