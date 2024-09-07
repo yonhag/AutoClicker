@@ -24,7 +24,7 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WindowsHandler.cpp">
+    <ClCompile Include="Clicker.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GraphicalHandler.cpp">
@@ -38,7 +38,7 @@
     <ClInclude Include="GraphicalHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="WindowsHandler.h">
+    <ClInclude Include="Clicker.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Settings.h">

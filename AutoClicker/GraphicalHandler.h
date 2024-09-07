@@ -2,13 +2,14 @@
 #include "Button.h"
 #include "Settings.h"
 #include <SFML/Graphics.hpp>
+#include <memory>
 
 class GraphicalHandler
 {
 public:
 	GraphicalHandler();
 	[[noreturn]] void HandleWindow();
-	Settings GetSettings() const;
+	void DisableClicker();
 
 private:
 	void HandleMouseEvent();

@@ -1,16 +1,17 @@
 #include "GraphicalHandler.h"
-#include <iostream>
+#include "Clicker.h"
+#include <thread>
 
 GraphicalHandler::GraphicalHandler() :
     _window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), WINDOW_TITLE),
     _leftButton("Left", 10, sf::Vector2f(100, 100), this->_font),
     _rightButton("Right", 10, sf::Vector2f(250, 100), this->_font),
-    _settings(MouseButton::Left, 0),
+    _settings(MouseButton::Left, 3),
     _isOpen(true)
 {
     _window.setFramerateLimit(60);
     if (!_font.loadFromFile("Carlito/Carlito-Regular.ttf"))
-        std::cerr << "Error loading font\n";
+        throw std::runtime_error("Failed to load font!");
 }
 
 void GraphicalHandler::HandleWindow()
@@ -40,9 +41,9 @@ void GraphicalHandler::HandleWindow()
     _isOpen = false;
 }
 
-Settings GraphicalHandler::GetSettings() const
+void GraphicalHandler::DisableClicker()
 {
-    return this->_settings;
+    _settings._activated = false;
 }
 
 void GraphicalHandler::HandleMouseEvent()
@@ -52,14 +53,24 @@ void GraphicalHandler::HandleMouseEvent()
     {
         _rightButton.Click();
         _leftButton.Unclick();
+        
         _settings._button = MouseButton::Right;
+        
+        std::thread clickingThread(&Clicker::Click, std::ref(_settings));
+        clickingThread.detach();
+
+        _settings._activated = true;
     }
     else if (_leftButton.GetGlobalBounds().contains(mousePos.x, mousePos.y))
     {
         _leftButton.Click();
         _rightButton.Unclick();
+        
         _settings._button = MouseButton::Left;
-    }
+      
+        std::thread clickingThread(&Clicker::Click, std::ref(_settings));
+        clickingThread.detach();
 
-    _settings._activated = true;
+        _settings._activated = true;
+    }
 }

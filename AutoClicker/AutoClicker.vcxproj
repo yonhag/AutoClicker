@@ -138,13 +138,13 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="GraphicalHandler.cpp" />
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="WindowsHandler.cpp" />
+    <ClCompile Include="Clicker.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
     <ClInclude Include="GraphicalHandler.h" />
     <ClInclude Include="Settings.h" />
-    <ClInclude Include="WindowsHandler.h" />
+    <ClInclude Include="Clicker.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
